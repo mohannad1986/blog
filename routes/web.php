@@ -31,9 +31,9 @@ Route::get('/dashboard', function () {
 //         return view('home');
 //     });
 
-    Route::get('/blog', function () {
-        return view('blog.thepage2');
-    })->name('blog');
+    // Route::get('/blog', function () {
+    //     return view('blog.thepage2');
+    // })->name('blog');
 
 
 
@@ -57,6 +57,12 @@ Route::resource('tag',TagController::class);
 Route::resource('post',PostController::class);
 Route::post('/postupdate',[App\Http\Controllers\PostController::class,'update'])->name('postupdate');
 Route::get('/post.delet/{id}',[App\Http\Controllers\PostController::class,'destroy'])->name('post.delet');
+
+
+Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog');
+
+
+
 
 
 

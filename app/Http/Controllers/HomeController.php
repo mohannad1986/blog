@@ -28,7 +28,6 @@ class HomeController extends Controller
 
     {
 
-        $posts=post::get();
-        return view('home',compact('posts'));
+        return view('home');
     }
 }
