@@ -134,8 +134,8 @@ class PostController extends Controller
      */
     public function update( Request $request)
     {
-        // UpdatePostRequest
-        // return $request;
+
+
 
         $post=Post:: FindOrFail($request->id);
 
@@ -181,6 +181,8 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post=Post::FindOrFail($id);
+        File::delete(storage_path('app/public/images/' . $post->cover_image));
+
         $post->delete();
 
         toastr()->success('post added updated');

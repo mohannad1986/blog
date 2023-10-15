@@ -66,7 +66,7 @@
 
                         <label >date  of publish  :  </label>
 
-                        <input type="date" name="published_at"  format="YYYY-MM-DD"  value="{{ $post->published_at }}" >
+                        <input type="date" name="published_at"    value="{{date_format(date_create($post->published_at),'Y-m-d')}}" >
                             </div>
 
                             <div class="col-md-6">
@@ -97,7 +97,14 @@
                 @foreach ($tags as $tag )
                 <option value="{{$tag->id}}" @if(in_array($tag->id, $oldTags))
                     selected
-                    @endif data-search="{{$tag->name}}">{{$tag->name}}</option>
+
+
+                    @endif
+
+
+                    data-search="{{$tag->name}}">{{$tag->name}}</option>
+
+                    {{--  --}}
 
                 @endforeach
 
