@@ -29,4 +29,28 @@ class BlogController extends Controller
         ]);
 
     }
+
+    // public function index3(): View
+    // {
+    //     return view('blog.visitor.homelive');
+    // }
+
+    public function mohameklive(): View
+    {
+        return view('blog.visitor.hom-mohamek');
+    }
+
+    public function mohamek_not_live(): View
+    {
+        $posts=Post::all();
+        return view('blog.visitor.mohamek-not-live.hom-mohamek-not-live',compact('posts'));
+    }
+
+    public function getnews($id){
+
+        $post=Post::FindOrFail($id);
+
+        return view('blog.visitor.mohamek-not-live.singlenews',compact('post'));
+
+    }
 }

@@ -35,6 +35,9 @@ Route::get('/dashboard', function () {
     //     return view('blog.thepage2');
     // })->name('blog');
 
+    Route::get('/mohamek', function () {
+        return view('blogmoh.index');
+    })->name('dashboard');
 
 
 
@@ -60,6 +63,16 @@ Route::get('/post.delet/{id}',[App\Http\Controllers\PostController::class,'destr
 
 
 Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog');
+
+// Route::get('/bloglive', [App\Http\Controllers\BlogController::class, 'index3'])->name('bloglive');
+
+Route::get('/mohamekglive', [App\Http\Controllers\BlogController::class, 'mohameklive'])->name('mohamekglive');
+Route::get('/mohamek_not_live', [App\Http\Controllers\BlogController::class, 'mohamek_not_live'])->name('mohamek_not_live');
+Route::get('/getnews/{id}', [App\Http\Controllers\BlogController::class,'getnews'])->name('getnews');
+
+
+
+
 
 
 

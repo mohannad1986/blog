@@ -49,6 +49,10 @@ class Post extends Model
             ->orWhere('body', 'like', '%' . $search . '%');
     }
 
+    // هاد سكوب يستخدم بالاستعلامات بيرجع البوست الي فيتو هك
+    // كيف بتناديلو متل اي تابعع اسمو كاتيغةري
+    // $post::Category()
+
     public function scopeCategory(Builder $query, string $category): Builder
     {
         return $query->where('category_id', $category);

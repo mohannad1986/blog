@@ -79,6 +79,7 @@ class PostController extends Controller
             $imageNewName   = explode('.', $imageName)[0];
             $fileExtention  = time() . '.' . $imageNewName . '.' . $image->getClientOriginalExtension();
             $location       = storage_path('app/public/images/' . $fileExtention);
+
             Image::make($image)->resize(1200, 630)->save($location);
 
             $post->cover_image = $fileExtention;
@@ -87,10 +88,12 @@ class PostController extends Controller
         $post->save();
         // $tagy=explode(',',);
         // $post->tags()->attach($request->tags);
+        if(!isNull( $request->tags)){
         $tagIds = explode(',', $request->tags[0]);
 
 
         $post->tags()->sync($tagIds);
+        }
 
         // return redirect()->route('posts.index')->with('success', 'Post created succesfully!');
         toastr()->success('post added successsfully');

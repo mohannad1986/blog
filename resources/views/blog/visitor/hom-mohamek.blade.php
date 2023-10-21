@@ -1,0 +1,6 @@
+@livewireStyles
+
+<livewire:Posts />
+
+@livewireScripts
+
