@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Keyword;
 
 use function PHPUnit\Framework\isNull;
 
@@ -56,7 +57,7 @@ class PostController extends Controller
 
     //    var_dump($tagIds);
 
-
+    // return $request;
 
         // $intArray = array_map('intval',$request->tags);
 
@@ -88,12 +89,36 @@ class PostController extends Controller
         $post->save();
         // $tagy=explode(',',);
         // $post->tags()->attach($request->tags);
-        if(!isNull( $request->tags)){
+        if(!is_null( $request->tags)){
+
         $tagIds = explode(',', $request->tags[0]);
 
 
         $post->tags()->sync($tagIds);
-        }
+
+         }
+
+         if(!is_null( $request->key_words)){
+
+            $key_wordsnames = explode(',', $request->key_words);
+            $numberellement =count($key_wordsnames);
+
+            foreach( $key_wordsnames as $keyword){
+            //   اذا بدك تضيف بس لمرة واحدة
+            // $user = User::firstOrCreate(['name' => 'John Doe']);
+                $Keyword = new Keyword();
+                $Keyword->word =$keyword;
+                $Keyword->save();
+                $post->keywords()->attach($Keyword->id);
+            }
+
+            // $key_wordsIds = explode(',', $request->key_words[0]);
+
+
+            // $post->keywords()->sync($key_wordsIds);
+
+             }
+
 
         // return redirect()->route('posts.index')->with('success', 'Post created succesfully!');
         toastr()->success('post added successsfully');
@@ -196,3 +221,4 @@ class PostController extends Controller
 
     }
 }
+

@@ -41,17 +41,40 @@ class LoginController extends Controller
     }
 
 
-    // ++++++++++++++++
-    public function redirectTo() {
-        $role = Auth::user()->name;
-        switch ($role) {
-          case 'user1':
-            return 'dashboard';
-            break;
-          default:
-            return '/home';
-          break;
+    // // ++++++++++++++++
+    // public function redirectTo() {
+    //     $role = Auth::user()->name;
+    //     switch ($role) {
+    //       case 'user1':
+    //         return 'dashboard';
+    //         break;
+    //       default:
+    //         return '/home';
+    //       break;
+    //     }
+    //   }
+
+
+    // ++++++++++++++++++
+      // ++++++++++++++++
+      public function redirectTo() {
+         $users= auth()->user();
+        $rolees =  $users->getRoleNames();
+        foreach( $rolees as $rolee){
+            $role=$rolee;
         }
+
+        // $role= array_values($rolee)[0];;
+
+        if ( $role == 'Admen') {
+            // return redirect(route('mohamek_dashboard'));
+            return 'mohamek_dashboard/';
+
+        }
+
+        // return redirect(route('mohamek_not_live'));
+        return 'mohamek_not_live/';
+
       }
 
 

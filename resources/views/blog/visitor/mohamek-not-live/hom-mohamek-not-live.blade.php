@@ -56,6 +56,9 @@
         {{-- <link href="{{ URL::asset('assets/css/blogmoh/') }}" rel="stylesheet">
         <link href="{{ URL::asset('assets/css/blogmoh/style.css') }}" rel="stylesheet"> --}}
 
+        <link href="{{ URL::asset('assets/css/amsify.suggestags.css') }}" rel="stylesheet">
+
+
 
 
 
@@ -80,9 +83,10 @@
         <div class="modal fade" id="search-modal">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <form>
+                    <form action="{{route('mohamek_searchword')}}" method="post">
+                        @csrf
                         <div class="form_group">
-                            <input type="text" class="form_control" placeholder="إبحث هنا...">
+                            <input type="text" name="keyword" class="form_control" placeholder="إبحث هنا...">
                             <button class="search_btn"><i class="fa fa-search"></i></button>
                         </div>
                     </form>
@@ -220,8 +224,8 @@
                             </div>
                             <div class="entry-content">
                                 <div class="post-admin">
-                                    <span><img src=" assets/images/testimonial/thumb-2.jpg" alt="المستخدم"><a href="#">محمد
-                                            علي</a></span>
+                                    <span><img src=" assets/images/testimonial/thumb-2.jpg" alt="المستخدم"><a href="#">
+                                            {{$post->user->name}}</a></span>
                                 </div>
                                 <h3 class="title"><a class="text-body" href="{{route('getnews',$post->id)}}">
                                     {{$post->title}}</a>
@@ -269,6 +273,10 @@
                             <div class="widget categories-widget mb-45 wow fadeInUp">
                                 <h4 class="widget-title">التصنيفات</h4>
                                 <ul class="widget-link">
+                                    @foreach ($categories as $category)
+                                    <li><a href="{{route('mohamek_postcategory',$category->id)}}"> {{$category->name}} <span>(05)</span></a></li>
+
+                                    @endforeach
                                     <li><a href="#">نمط الحياة <span>(05)</span></a></li>
                                     <li><a href="#">السفر <span>(34)</span></a></li>
                                     <li><a href="#">الأزياء <span>(89)</span></a></li>
@@ -516,6 +524,8 @@
      <script src="{{ URL::asset('assets/js/blogmoh/wow.min.js') }}"></script>
      <!--====== Main js ======-->
      <script src="{{ URL::asset('assets/js/blogmoh/main.js') }}"></script>
+
+     <script src="{{ URL::asset('assets/js/jquery.amsify.suggestags.js') }}"></script>
 
 
 

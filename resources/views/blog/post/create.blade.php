@@ -57,6 +57,17 @@
 
 
                         </div>
+                        {{-- +++++++++++++++++++++++++++++++++ --}}
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="key_words"/>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        {{-- +++++++++++++++++++++++++ --}}
                         <div class="form-row">
                             <div class="col-md-6">
 
@@ -378,6 +389,9 @@
             }
         }));
     });
+</script>
+<script>
+$('input[name="key_words"]').amsifySuggestags();
 </script>
 
 @endsection

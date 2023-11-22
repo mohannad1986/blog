@@ -265,7 +265,7 @@
                                     <img src="assets/images/testimonial/thumb-2.jpg" alt="صورة المؤلف">
                                 </div>
                                 <div class="author-content">
-                                    <h4>محمد العتيبي</h4>
+                                    <h4>{{$post->user->name}} </h4>
                                     <p>بسم الله الرحمن الرحيم. اللهم صل وسلم على نبينا محمد.</p>
                                     <ul class="social-link">
                                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -308,7 +308,26 @@
                             <div class="comments-area">
                                 <h4 class="comments-title mb-35">تعليقات الأشخاص</h4>
                                 <ul class="comments-list">
+                                    @if( count($post->comments)==0)
+                                             لايوجد تعليقات على هذا البوستلللللللللللللللللللللللللللللل
+                                   @else
+                                    @foreach ($post->comments as $comment )
                                     <li class="comment">
+                                        <div class="comment-avatar">
+                                            <img src="assets/images/testimonial/thumb-2.jpg" alt="صورة المعلق">
+                                        </div>
+                                        <div class="comment-wrap">
+                                            <div class="comment-author-content">
+                                                <span class="author-name">{{$comment->user->name}}<span class="date">{{$comment->created_at}}
+                                                       </span></span>
+                                                <p> {{$comment->content}}  </p>
+                                                <a href="#comment-respond" class="reply">الرد</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @endforeach
+                                    @endif
+                                    {{-- <li class="comment">
                                         <div class="comment-avatar">
                                             <img src="assets/images/testimonial/thumb-2.jpg" alt="المعلق الأول">
                                         </div>
@@ -346,15 +365,18 @@
                                                 <a href="#comment-respond" class="reply">الرد</a>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
                             <div class="comments-respond">
                                 <h4 class="comments-heading mb-20">اترك رسالتك</h4>
-                                <form>
+                                <form action="{{route('comment')}}" method="POST">
+                                    @csrf
                                     <div class="row">
+                                         <input type="hidden" name="post_id" value="{{$post->id}}">
                                         <div class="col-lg-6">
                                             <div class="form_group">
+
                                                 <input type="text" class="form_control" placeholder="الاسم الكامل"
                                                     name="name" required>
                                             </div>
@@ -380,7 +402,7 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form_group">
-                                                <textarea class="form_control" name="message"
+                                                <textarea class="form_control" name="content"
                                                     placeholder="اكتب رسالتك هنا"></textarea>
                                             </div>
                                         </div>
@@ -469,6 +491,14 @@
                                 <a href="#">مزارع</a>
                                 <a href="#">إدارة</a>
                                 <a href="#">تخطيط</a>
+                            </div>
+
+                            <div class="widget tag-cloud-widget mb-50 wow fadeInUp">
+                                <h4 class="widget-title">العلامات الشعبية</h4>
+                                @foreach ($post->tags as $tag)
+                                <a href="#">{{ $tag->name}}</a>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>

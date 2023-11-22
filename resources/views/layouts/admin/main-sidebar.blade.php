@@ -66,6 +66,76 @@
                         </ul>
                     </li>
                     <!-- menu item todo-->
+                      <!-- menu item calendar-->
+                      <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#calendar-menu2">
+                            <div class="pull-left"><i class="ti-calendar"></i><span
+                                    class="right-nav-text">الاخبار</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="calendar-menu2" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{route('post.index')}}"> الاخبار </a> </li>
+                            <li> <a href="{{route('post.create')}}">اضافة خبر </a> </li>
+                        </ul>
+                    </li>
+                    <!-- menu item todo-->
+                     <!-- menu item calendar-->
+                     <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#calendar-menu3">
+                            <div class="pull-left"><i class="ti-calendar"></i><span
+                                    class="right-nav-text">الفئات</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="calendar-menu3" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{route('category.index')}}"> الفئات </a> </li>
+                            <li> <a href="{{route('category.create')}}">اضافة فئة </a> </li>
+                        </ul>
+                    </li>
+                    <!-- menu item todo-->
+                      <!-- menu item calendar-->
+                      <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#calendar-menu4">
+                            <div class="pull-left"><i class="ti-calendar"></i><span
+                                    class="right-nav-text">العلامات الشعبية</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="calendar-menu4" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{route('tag.index')}}"> العلامات الشعبية </a> </li>
+                            <li> <a href="{{route('tag.create')}}">اضافة  علامات </a> </li>
+                        </ul>
+                    </li>
+                    <!-- menu item todo-->
+                      <!-- menu item calendar-->
+                      <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#calendar-menu5">
+                            <div class="pull-left"><i class="ti-calendar"></i><span
+                                    class="right-nav-text">المستخدمين </span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="calendar-menu5" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{route('users.index')}}"> المستخدمين  </a> </li>
+                            <li> <a href="{{route('users.create')}}">اضافة  مستخدم </a> </li>
+                        </ul>
+                    </li>
+                    <!-- menu item todo-->
+                     <!-- menu item calendar-->
+                     <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#calendar-menu6">
+                            <div class="pull-left"><i class="ti-calendar"></i><span
+                                    class="right-nav-text">الادوار  </span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="calendar-menu6" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{route('roles.index')}}"> الادوار  </a> </li>
+                            <li> <a href="{{route('roles.create')}}">اضافة  دور </a> </li>
+                        </ul>
+                    </li>
+                    <!-- menu item todo-->
                     <li>
                         <a href="todo-list.html"><i class="ti-menu-alt"></i><span class="right-nav-text">Todo
                                 list</span> </a>

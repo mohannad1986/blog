@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\comments;
+use App\Models\Keyword;
+
 
 class Post extends Model
 {
@@ -41,6 +45,16 @@ class Post extends Model
         return $this->belongsToMany(Tag::class, 'post_tag');
     }
 
+
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(comments::class,'post_id');
+    }
+    public function keywords(): BelongsToMany
+    {
+        return $this->belongsToMany(Keyword::class, 'post_keyword');
+    }
     public static function searchPost($search)
     {
         return empty($search) ? static::query()

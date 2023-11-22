@@ -9,6 +9,8 @@
 <script src="{{ URL::asset('assets/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
 <script src="{{ URL::asset('assets/js/blog/main.js') }}"></script>
+<script src="{{ URL::asset('assets/js/jquery.amsify.suggestags.js') }}"></script>
+
 
 {{-- {{ URL::asset('assets/lib/')}} --}}
 {{-- {{ URL::asset('assets/lib/owlcarousel/owl.carousel.min.js')}} --}}

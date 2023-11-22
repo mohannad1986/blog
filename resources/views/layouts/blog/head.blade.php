@@ -19,6 +19,8 @@
 
 <!-- Customized Bootstrap Stylesheet -->
 <link href="{{ URL::asset('assets/css/blog/style.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('assets/css/amsify.suggestags.css') }}" rel="stylesheet">
+
 
 {{-- {{ URL::asset('assets/css/blog/style.css') }} --}}
 

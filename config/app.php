@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Beirut',
 
     /*
     |--------------------------------------------------------------------------
@@ -168,6 +168,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        // برمشن ان رولز
+        Spatie\Permission\PermissionServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        // انتهي برمشن ان رولز
     ])->toArray(),
 
     /*
@@ -183,6 +188,11 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+
+        // برمشن ان رولز
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        // انتهى برمشن ان رولز
     ])->toArray(),
 
 ];
